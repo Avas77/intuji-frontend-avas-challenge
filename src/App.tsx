@@ -1,5 +1,11 @@
+import SearchBox from "./components/SearchBox";
+
 function App() {
-  return <div className="text-3xl text-red-500">Hello Wolrd</div>;
+  return (
+    <main className="flex justify-center items-center min-h-screen bg-background">
+      <SearchBox />
+    </main>
+  );
 }
 
 export default App;
