@@ -1,14 +1,29 @@
-import React from "react";
 import UserBox from "../UserBox";
+import { useQuery } from "react-query";
+import { getUsers } from "../../api";
+import { useTabsContext } from "../../hooks/useTabsContext";
+import { getFilteredusers } from "../../utils/getFilteredUsers";
 
 const UserBoxGroup = () => {
+  const { activeTab } = useTabsContext();
+  const { data: users, isLoading, isError } = useQuery("users", getUsers);
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Something went wrong.</div>;
+  const filteredUsers = users ? getFilteredusers(users, activeTab) : [];
   return (
-    <UserBox
-      imgSrc="https://www.w3schools.com/howto/img_avatar.png"
-      username="21 industries"
-      group="Teams"
-      activeStatus="About 8 days ago"
-    />
+    <>
+      {filteredUsers.map((user) => {
+        return (
+          <UserBox
+            key={user.id}
+            imgSrc={user.imgpath}
+            username={user.name}
+            group={user.usergroup}
+            activeStatus={user.status}
+          />
+        );
+      })}
+    </>
   );
 };
 
