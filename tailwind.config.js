@@ -5,6 +5,10 @@ export default {
     extend: {
       colors: {
         background: "#E5E5E5",
+        gray: "#EAECF0",
+        skyblue: "#F4F8FB",
+        blue: "#3F9BFC",
+        slateGray: "#667085",
       },
     },
   },
