@@ -1,7 +1,7 @@
 import { Tabs } from "../../contexts/TabContext";
 import SearchBar from "../SearchBar";
 import Tab from "../Tab";
-import UserBox from "../UserBox";
+import UserBoxGroup from "../UserBoxGroup";
 
 const SearchBox = () => {
   return (
@@ -13,7 +13,7 @@ const SearchBox = () => {
           <Tab value="teams">Teams</Tab>
           <Tab value="members">Members</Tab>
         </div>
-        <UserBox />
+        <UserBoxGroup />
       </Tabs>
     </section>
   );

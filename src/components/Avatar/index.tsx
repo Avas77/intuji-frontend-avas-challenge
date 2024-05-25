@@ -1,13 +1,9 @@
 import React from "react";
 
-const Avatar = () => {
+const Avatar = ({ src }: { src: string }) => {
   return (
     <div className="relative">
-      <img
-        src="https://www.w3schools.com/howto/img_avatar.png"
-        alt="Avatar"
-        className="w-10 h-10 rounded-full"
-      />
+      <img src={src} alt="Avatar" className="w-10 h-10 rounded-full" />
     </div>
   );
 };
