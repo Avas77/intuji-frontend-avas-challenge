@@ -16,7 +16,7 @@ const UserBoxGroup = ({ name }: IUserBoxGroupProps) => {
     isError,
   } = useQuery(`users ${name}`, () => getUsers(name));
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <div className="pl-6 pt-4">Loading...</div>;
   if (isError) return <div>Something went wrong.</div>;
   const filteredUsers = users ? getFilteredusers(users, activeTab) : [];
   return (
