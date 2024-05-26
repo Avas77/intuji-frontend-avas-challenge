@@ -4,9 +4,18 @@ import { getUsers } from "../../api";
 import { useTabsContext } from "../../hooks/useTabsContext";
 import { getFilteredusers } from "../../utils/getFilteredUsers";
 
-const UserBoxGroup = () => {
+interface IUserBoxGroupProps {
+  name: string;
+}
+
+const UserBoxGroup = ({ name }: IUserBoxGroupProps) => {
   const { activeTab } = useTabsContext();
-  const { data: users, isLoading, isError } = useQuery("users", getUsers);
+  const {
+    data: users,
+    isLoading,
+    isError,
+  } = useQuery(`users ${name}`, () => getUsers(name));
+
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Something went wrong.</div>;
   const filteredUsers = users ? getFilteredusers(users, activeTab) : [];
