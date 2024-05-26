@@ -1,5 +1,3 @@
-import React from "react";
-
 const Avatar = ({ src }: { src: string }) => {
   return (
     <div className="relative">
